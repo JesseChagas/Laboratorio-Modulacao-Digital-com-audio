@@ -4,7 +4,11 @@ import soundfile as sf
 import sounddevice as sd
 from scipy import signal
 import time
-from functions.funcoes import *
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), "..", "functions"))
+from funcoes import *
+
 
 
 
@@ -35,12 +39,12 @@ print(f"Criando arquivos de teste para: {test_data}")
 
 # NRZ
 nrz_signal = encode_nrz(test_data)
-sf.write('teste_nrz.wav', nrz_signal, SAMPLE_RATE)
+sf.write('Parte_1/audios/audiosteste_nrz.wav', nrz_signal, SAMPLE_RATE)
 print("\t ✓ Arquivo teste_nrz.wav criado")
 
 # Manchester
 manchester_signal = encode_manchester(test_data)
-sf.write('teste_manchester.wav', manchester_signal, SAMPLE_RATE)
+sf.write('Parte_1/audios/teste_manchester.wav', manchester_signal, SAMPLE_RATE)
 print("\t ✓ Arquivo teste_manchester.wav criado")
 
 
@@ -52,7 +56,7 @@ print(f"Número de bits: {len(original_data)}\n")
 
 # Testa decodificação NRZ
 print("1. Decodificando NRZ:")
-nrz_audio, _ = sf.read('dados_123210473_44100hz.wav')
+nrz_audio, _ = sf.read('Parte_1/audios/dados_123210473_44100hz.wav')
 decoded_nrz = decode_nrz(nrz_audio, len(original_data))
 print(f"Original: {original_data}")
 print(f"Decodificado: {decoded_nrz}")
@@ -60,7 +64,7 @@ print(f"Correto: {original_data == decoded_nrz}\n")
 
 # Testa decodificação Manchester
 print("3. Decodificando Manchester:")
-manchester_audio, _ = sf.read('dados_123210473_44100hz.wav')
+manchester_audio, _ = sf.read('Parte_1/audios/dados_123210473_44100hz.wav')
 decoded_manchester = decode_manchester(manchester_audio, len(original_data))
 print(f"Original: {original_data}")
 print(f"Decodificado: {decoded_manchester}")

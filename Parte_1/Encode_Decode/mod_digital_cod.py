@@ -1,5 +1,4 @@
 import os
-
 import sounddevice as sd
 import numpy as np
 from scipy.io import wavfile
@@ -12,7 +11,7 @@ sd.default.device = (input_device, output_device)
 
 DURATION = 3  # duraçao em segundos
 SAMPLE_RATE = 44100  # Hz
-FILENAME = "captura.wav"
+FILENAME = "Parte_1/audios/captura.wav"
 
 audio = sd.rec(int(DURATION * SAMPLE_RATE), samplerate=SAMPLE_RATE, channels=1, dtype='float32')
 sd.wait()

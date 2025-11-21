@@ -1,6 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from functions.funcoes import *
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), "..", "functions"))
+from funcoes import *
 
 mensagem_bits = "10001101010011001011110"
 num_bits = len(mensagem_bits)

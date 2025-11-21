@@ -4,7 +4,10 @@ import soundfile as sf
 import sounddevice as sd
 from scipy import signal
 import time
-from functions.funcoes import *
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), "..", "functions"))
+from funcoes import *
 
 
 
